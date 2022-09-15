@@ -50,10 +50,17 @@ Bill userInput()
     using namespace std;
     
     Bill bill;
+    int temp = 0;
     do
     {
-        cout << "Введите номер счёта: "; cin >> bill.account;
+        // оказалось cin не верно принимает unsigned переменные
+        // или не так как я ожидал, поэтому сделал ввод данных
+        // счета через временную переменную с последующим
+        // приведением (
+        cout << "Введите номер счёта: "; cin >> temp;
     } while (inputClean());
+    if (temp < 0) bill.account = static_cast<unsigned int>(temp) * -1;
+    else bill.account = static_cast<unsigned int>(temp);
 
     cout << "Введите имя владельца: "; cin >> bill.userName;
 
