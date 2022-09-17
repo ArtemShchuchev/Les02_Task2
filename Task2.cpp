@@ -59,8 +59,8 @@ Bill userInput()
         // приведением (
         cout << "Введите номер счёта: "; cin >> temp;
     } while (inputClean());
-    if (temp < 0) bill.account = static_cast<unsigned int>(temp) * -1;
-    else bill.account = static_cast<unsigned int>(temp);
+    if (temp < 0) temp *= -1;
+    bill.account = static_cast<unsigned int>(temp);
 
     cout << "Введите имя владельца: "; cin >> bill.userName;
 
